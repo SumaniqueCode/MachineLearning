@@ -13,6 +13,8 @@ print(random_arr)
 
 random_int_arr = np.random.randint(1, 100, size=(4,4)) # 4x4 array of random integers between 1 and 100
 print(random_int_arr)
+random_int_arr[random_int_arr < 5] = 0  # Set elements less than 0.5 to 0
+print("Modified random array:\n", random_int_arr)
 
 #Broadcasting example
 matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
