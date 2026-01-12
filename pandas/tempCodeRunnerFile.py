@@ -1,1 +1,0 @@
-df['species']=='setosa'
