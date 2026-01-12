@@ -21,3 +21,6 @@ print(df.iloc[0]) # Select and print the first row using integer-based indexing
 print(df.iloc[:, 3]) # Select and print all rows from the 4th column (petal width) using integer-based indexing
 print(df.loc[0]) # Select and print the first row using label-based indexing
 print(df.loc[:, "species"]) # Select and print all rows from the 'species' column using label-based indexing
+
+filtered_data = df[(df['sepal length']>4) & (df['species']=='Iris-setosa') ] # multiple filter
+print(filtered_data)
