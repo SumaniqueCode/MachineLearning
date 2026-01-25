@@ -22,3 +22,19 @@ df = pd.DataFrame(data)
 df['area_sq_km'] = df['area_sq_km'].interpolate() # fills the value based interpolation (fills based on similar data)
 
 print(df)
+
+# data transformation
+df = df.rename(columns={'name': 'city_name', 'population': 'pop_total'}) # renaming the columns
+# df['column_name'] = pd.to_datetime(df['column_name']) # changing the data type of a column
+df['pop_total'] = df['pop_total'].astype('Int64') # changing the data type of a column
+df['mul_area_sq_km'] = df['area_sq_km'] * 2 # creating a new column by transforming existing column
+
+#combining and merging data frames
+combine_data = pd.concat([df['city_name'], df['country']], axis=1) # combining two data frames side by side
+merged_df = pd.merge(df, combine_data, on='city_name', how='left') # merging two data frames based on a common column
+left_joined_df = pd.merge(df, combine_data, on='city_name', how='left') # left join
+right_joined_df = pd.merge(df, combine_data, on='city_name', how='right') # right join
+inner_joined_df = pd.merge(df, combine_data, on='city_name', how='inner') # inner join
+outer_joined_df = pd.merge(df, combine_data, on='city_name', how='outer') # outer join
+
+joined_df = df.join(combine_data, how='left') # joining two data frames based on index
